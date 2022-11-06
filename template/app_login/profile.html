@@ -1,0 +1,14 @@
+{% extends 'common_code/base.html' %} 
+{% block title_block %} Profile {% endblock %} 
+{% block body_block %}
+<h2>Your Profile:</h2>
+{% if user.user_profile %}
+<img src="{{user.user_profile.profile_pic.url}}" alt="" class="rounded-circle" width="100px">
+{% else %} 
+<img src="/media/profile_pics/user.jpg" alt="" class="rounded-circle" width="100px">
+{% endif %}
+<p>Username: {{user.username}}</p>
+<p>Email: {{user.email}}</p>
+<p>Name: {{user.first_name}} {{user.last_name}}</p>
+<a href="{% url 'App_Login:change-profile' %}" class="btn btn-sm btn-warning">Change profile information</a>
+{% endblock %}
